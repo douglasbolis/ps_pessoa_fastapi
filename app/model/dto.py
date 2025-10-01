@@ -1,7 +1,7 @@
 from typing import Optional, List
 from datetime import datetime
 from sqlmodel import Field
-from model.models import PessoaBase, LocadorBase, LocatarioBase, EnderecoBase, CarroBase, SeguroBase, LocacaoBase
+from app.model.models import PessoaBase, LocadorBase, LocatarioBase, EnderecoBase, CarroBase, SeguroBase, LocacaoBase
 
 # ====================================================================
 #                           ENDERECO
@@ -26,6 +26,9 @@ class PessoaRead(PessoaBase):
 # ====================================================================
 #                          LOCADOR
 # ====================================================================
+
+class LocadorRead(LocadorBase):
+    id: int
 
 class LocadorCreate(LocadorBase):
     endereco: Optional[EnderecoCreate] = None

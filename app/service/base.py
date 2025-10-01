@@ -1,6 +1,6 @@
 from typing import Generic, TypeVar, List, Any, Optional
 from sqlmodel import Session, SQLModel
-from repository.base import Repository, ModelT, CreateT, UpdateT
+from app.repository.base import Repository, ModelT, CreateT, UpdateT
 
 class Service(Generic[ModelT, CreateT, UpdateT]):
     def __init__(self, repo: Repository[ModelT, CreateT, UpdateT]):
