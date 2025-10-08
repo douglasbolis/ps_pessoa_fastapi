@@ -1,13 +1,17 @@
 from fastapi import FastAPI
-from app.util.database import init_db
-from app.controller.locador import router as locadores_router
+from util.database import init_db
+from controller.endereco import router as enderecos_router
+from controller.pessoa import router as pessoas_router
 
-app = FastAPI(title="APP using FastAPI + SQLModel with MVC pattern")
+title = "APPeople -> An APP using FastAPI + SQLModel with MVC pattern"
+app = FastAPI(title=title)
 
 init_db()
 
-app.include_router(locadores_router)
+app.include_router(enderecos_router)
+app.include_router(pessoas_router)
 
 @app.get("/")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "message": title}
+# fim_def
